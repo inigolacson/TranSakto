@@ -17,7 +17,7 @@ export default function LoginPage() {
         <ImageBackground
         source={bgImage}
         resizeMode='cover'
-        className='flex-1 justify-center items-center px-8 py 16'>
+        className='flex-1 justify-center items-center px-8 py-16'>
             <View className='items-center mb-8'>
                 <Text className=' text-4xl font-bold text-mainBlack mb-4'>Welcome back</Text>
             </View>
@@ -33,7 +33,7 @@ export default function LoginPage() {
                 placeholderTextColor='#5C5C5C'/>
                 
             </View>
-            <View className='bg-white rounded-full py-2 px-8 mb-10 w-3/4 flex-row items-center space-x-10' >
+            <View className='bg-white rounded-full py-2 px-8 mb-2 w-3/4 flex-row items-center space-x-10' >
                 <FontAwesome name="lock" size={20} color="#5C5C5C" className='mr-3'/>
                 <TextInput
                 value={password}
@@ -53,9 +53,18 @@ export default function LoginPage() {
                     />
                 </Pressable>
             </View>
-            <TouchableOpacity className='bg-mainBlue70 py-4 px-8 rounded-full shadow-md w-3/4 items-center'>
+            <Link href="/auth/create-account" asChild className='mb-14 w-3/4'>
+                <Text className='justify-items-end text-right italic pr-1 text-sm'>Forgot password?</Text>
+            </Link>
+            <TouchableOpacity className='bg-mainBlue70 py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'>
                 <Text className='text-white text-xl font-semibold'>Login!</Text>
             </TouchableOpacity> 
+            <View className='flex-row items-center'>
+                <Text>First time managing a business? </Text>
+                <Link href='/auth/create-account' asChild>
+                <Text className='text-blue-900'>Sign Up!</Text>
+                </Link>
+                    </View>
         </ImageBackground>
     )
 }
