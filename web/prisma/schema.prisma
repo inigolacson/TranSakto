@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String @id @default(uuid())
+  name  String
+  email String @unique
+
+  stores Store[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Store {
+  id     String @id @default(uuid())
+  name   String
+  userId String
+
+  user     User      @relation(fields: [userId], references: [id])
+  cashiers Cashier[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Cashier {
+  id      String @id @default(uuid())
+  name    String
+  storeId String
+
+  store        Store         @relation(fields: [storeId], references: [id])
+  transactions Transaction[]
+  products     Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Transaction {
+  id        String   @id @default(uuid())
+  date      DateTime
+  cashierId String
+
+  cashier          Cashier           @relation(fields: [cashierId], references: [id])
+  transactionItems TransactionItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id        String  @id @default(uuid())
+  name      String
+  imageUrl  String?
+  price     Decimal
+  cashierId String
+  stock     Int
+
+  cashier          Cashier           @relation(fields: [cashierId], references: [id])
+  transactionItems TransactionItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TransactionItem {
+  productId     String
+  transactionId String
+  price         Decimal
+  quantity      Int
+
+  product     Product     @relation(fields: [productId], references: [id])
+  transaction Transaction @relation(fields: [transactionId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@id([productId, transactionId])
+}
