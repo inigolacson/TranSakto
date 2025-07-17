@@ -9,10 +9,12 @@ const bgImage = require('../../assets/images/index.webp');
 export default function LoginPage() {
     const [isEmailFocused, setIsEmailFocused] = useState(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+    
+    const [showPassword, setShowPassword] = useState(false)
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false)
-
+    
     return (
         <ImageBackground
         source={bgImage}
@@ -21,7 +23,7 @@ export default function LoginPage() {
             <View className='items-center mb-8'>
                 <Text className=' text-4xl font-bold text-mainBlack mb-4'>Welcome back</Text>
             </View>
-                <View className='bg-white rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10' >
+            <View className='bg-white rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10' >
                 <FontAwesome name="user" size={20} color="#5C5C5C" className='mr-3'/>
                 <TextInput
                 value={email}
@@ -33,7 +35,7 @@ export default function LoginPage() {
                 placeholderTextColor='#5C5C5C'/>
                 
             </View>
-            <View className='bg-white rounded-full py-2 px-8 mb-2 w-3/4 flex-row items-center space-x-10' >
+            <View className='bg-white rounded-full py-2 px-8 mb-3 w-3/4 flex-row items-center space-x-10' >
                 <FontAwesome name="lock" size={20} color="#5C5C5C" className='mr-3'/>
                 <TextInput
                 value={password}
@@ -64,7 +66,7 @@ export default function LoginPage() {
                 <Link href='/auth/create-account' asChild>
                 <Text className='text-blue-900'>Sign Up!</Text>
                 </Link>
-                    </View>
+            </View>
         </ImageBackground>
     )
 }
