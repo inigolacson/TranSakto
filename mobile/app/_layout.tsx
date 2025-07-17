@@ -6,7 +6,7 @@ import { useFonts } from 'expo-font';
  
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    Inter: require('../assets/fonts/inter/Inter.ttf'),
+    'Inter-Regular': require('../assets/fonts/inter/Inter.ttf'),
     'Inter-Italic': require('../assets/fonts/inter/Inter-Italic.ttf'),
     'Ronzino-Regular': require('../assets/fonts/ronzino/Ronzino-Regular.otf'),
     'Ronzino-Medium': require('../assets/fonts/ronzino/Ronzino-Medium.otf'),
@@ -25,9 +25,16 @@ if (!fontsLoaded) {
 }
 
   return (
-    <>
-      <StatusBar style="dark" />
-      <Stack screenOptions={{ headerShown: false }} />
-    </>
+    <View className="flex-1 bg-[#161616]">
+      <StatusBar style="light"/>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: {
+            backgroundColor: '#161616'
+          },
+        }}
+      />
+    </View>
   );
 }

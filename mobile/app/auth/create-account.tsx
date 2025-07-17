@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'expo-router';
-import { View, Text, TouchableOpacity, ImageBackground, Pressable, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, Pressable, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 const bgImage = require('../../assets/images/background/index.webp')
@@ -18,14 +18,14 @@ export default function CreateAccount() {
     const [password, setPassword] = useState('');
     
     return (
-        <ImageBackground
-        source={bgImage}
-        resizeMode='cover'
-        className='flex-1 justify-center items-center px-8 py-16'>
+        <View
+        className='flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack'>
+            {/* header */}
             <View className='items-center mb-8'>
-                <Text className='text-4xl font-bold text-mainBlack mb-4'>Create Account</Text> 
+                <Text className='text-4xl font-extrabold text-headerColor mb-4 font-inter tracking-widest'>Create Account</Text> 
             </View>
-            <View className='bg-white rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10'>
+            {/* email */}
+            <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10'>
                 <FontAwesome name='user' size={20} color="#5C5C5C" className='mr-3'/>
                 <TextInput
                 value={email}
@@ -33,11 +33,12 @@ export default function CreateAccount() {
                 onFocus={() => setIsEmailFocused(true)}
                 onBlur={() => setIsEmailFocused(false)}
                 placeholder={isEmailFocused ? '' : 'email address'}
-                className='flex-1 text-black pr-2'
-                placeholderTextColor='#5C5C5C'
+                className='flex-1 text-black pr-2 font-ron'
+                placeholderTextColor='#3A3A3A'
                 />
             </View>
-            <View className='bg-white rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10'>
+            {/* confirm email */}
+            <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10'>
                 <FontAwesome name='user' size={20} color="#5C5C5C" className='mr-3'/>
                 <TextInput
                 value={emailConfirm}
@@ -45,11 +46,12 @@ export default function CreateAccount() {
                 onFocus={() => setIsConfirmEmailFocused(true)}
                 onBlur={() => setIsConfirmEmailFocused(false)}
                 placeholder={ isConfirmEmailFocused ? '' : 'confirm email address'}
-                className='flex-1 text-black pr-2'
-                placeholderTextColor="#5C5C5C"
+                className='flex-1 text-black pr-2 font-ron'
+                placeholderTextColor="#3A3A3A"
                 />
             </View>
-            <View className='bg-white rounded-full py-2 px-8 mb-3 w-3/4 flex-row items-center space-x-10'>
+            {/* password */}
+            <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-4 w-3/4 flex-row items-center space-x-10'>
                 <FontAwesome name='lock' size={20} color="#5C5C5C" className='mr-3'/>
                 <TextInput
                 value={password}
@@ -58,8 +60,8 @@ export default function CreateAccount() {
                 onBlur={() => setIsPasswordFocused(false)}
                 placeholder={ isPasswordFocused ? '' : 'password'}
                 secureTextEntry = {!showPassword}
-                className='flex-1 text-black pr-2'
-                placeholderTextColor="#5C5C5C"/>
+                className='flex-1 text-black pr-2 font-ron'
+                placeholderTextColor="#3A3A3A"/>
 
                 <Pressable onPress={() => setShowPassword(prev => ! prev)}>
                     <FontAwesome
@@ -69,23 +71,26 @@ export default function CreateAccount() {
                     />
                 </Pressable>
             </View>
-            <View className='flex-row items-center space-x-10 mb-14 justify-items-start w-3/4 pl-1' >
-                <Pressable className='h-6 w-6 rounded-md bg-white items-center'
+            {/* checkbox */}
+            <View className='flex-row items-center space-x-10 mb-14 justify-items-start w-3/4 pl-3' >
+                <Pressable className='h-6 w-6 rounded-md bg-textBoxWhite items-center'
                 onPress={() => setChecked(!checked)}>
-                {checked && <Text className='text-mainBlack font-bold text-xl'>✓</Text>}
+                {checked && <Text className='text-tempBlack font-bold text-xl'>✓</Text>}
                 </Pressable>
-                <Text className='text-mainBlack ml-2 text-sm'>Agree with Terms and Conditions</Text>
+                <Text className=' ml-2 text-sm font-ron text-subheaderColor'>Agree with Terms and Conditions</Text>
             </View>
-            <TouchableOpacity className='bg-mainBlue70 py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'>
+            {/* button */}
+            <TouchableOpacity className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'>
                 <Text className='text-white text-xl font-semibold'>Sign Up!</Text>
             </TouchableOpacity>
+            {/* redirect login */}
             <View className='flex-row items-center'>
-                <Text>Already managing a business? </Text>
+                <Text className='text-subheaderColor font-ron'>Already managing a business?  </Text>
                 <Link href='/auth/login' asChild>
-                <Text className='text-blue-900'>Login!</Text>
+                <Text className='text-buttonOrange font-ron'>Login!</Text>
                 </Link>
             </View>
-        </ImageBackground>
+        </View>
 
     )
 } 

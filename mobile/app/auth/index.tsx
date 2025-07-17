@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 import { Link } from 'expo-router';
+import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
 
 const bgImage = require('../../assets/images/background/index.webp');
 
@@ -22,7 +22,7 @@ export default function WelcomeScreen() {
                 <View className='w-full items-center'>
                     <Link href="/auth/login" asChild>
                         <TouchableOpacity className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center'>
-                            <Text className='text-white text-xl font-semibold'>Start Today!</Text>
+                            <Text className='text-white text-xl font-ron-bold tracking-wider'>Start Today!</Text>
                         </TouchableOpacity>
                     </Link>
                 </View>

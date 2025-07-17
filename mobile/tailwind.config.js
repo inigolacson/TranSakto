@@ -8,12 +8,13 @@ module.exports = {
         headerColor: '#E2E2E2',
         subheaderColor: "#C2C1C0",
         tempBlack: '#161616',
-        buttonOrange: 'rgba(244, 124, 83, 0.6)'
+        buttonOrange: 'rgba(244, 124, 83, 0.6)',
+        textBoxWhite: 'rgba(255, 255, 255, 0.9)'
       },
       fontFamily: {
-        inter: ['Inter'],
+        'inter': ['Inter-Regular'],
         'inter-italic' : ['Inter-Italic'],
-        ron: ['Ronzino-Regular'],
+        'ron': ['Ronzino-Regular'],
         'ron-medium': ['Ronzino-Medium'],
         'ron-bold':['Ronzino-Bold'],
         'ron-oblique': ['Ronzino-Oblique'],
@@ -25,7 +26,7 @@ module.exports = {
   plugins: [],
 }
 
-
+// font reference
 // Tailwind Class      | Numeric Weight | Description
 // --------------------|----------------|--------------------------
 // font-thin           | 100            | Thin
