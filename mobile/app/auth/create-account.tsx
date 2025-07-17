@@ -3,7 +3,7 @@ import { Link } from 'expo-router';
 import { View, Text, TouchableOpacity, ImageBackground, Pressable, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const bgImage = require('../../assets/images/index.webp')
+const bgImage = require('../../assets/images/background/index.webp')
 
 export default function CreateAccount() {
     const [isEmailFocused, setIsEmailFocused] = useState(false);

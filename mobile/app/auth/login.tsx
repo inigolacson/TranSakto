@@ -4,7 +4,7 @@ import { View, Text, ImageBackground, TextInput, Pressable, TouchableOpacity } f
 import { Link } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
 
-const bgImage = require('../../assets/images/index.webp');
+const bgImage = require('../../assets/images/background/index.webp');
 
 export default function LoginPage() {
     const [isEmailFocused, setIsEmailFocused] = useState(false);
