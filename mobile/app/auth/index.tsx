@@ -13,7 +13,7 @@ export default function WelcomeScreen() {
                 </View>
                 {/* welcome message */}
                 <View className='items-center mb-11'>
-                    <Text className='text-4xl font-inter font-extrabold text-headerColor mb-4'>Welcome</Text>
+                    <Text className='text-4xl font-inter font-extrabold tracking-widest text-headerColor mb-4'>Welcome</Text>
                     <Text className='text-lg text-center text-subheaderColor px-4'>
                         A smarter POS-easy to use, built to match your unique business needs.
                     </Text>
