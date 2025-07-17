@@ -23,19 +23,19 @@ export default function LoginPage() {
             </View>
             {/* email */}
             <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10' >
-                <FontAwesome name="user" size={20} color="#5C5C5C" className='mr-3'/>
+                <FontAwesome name="user" size={20} color="#C44422" className='mr-3'/>
                 <TextInput
                 value={email}
                 onChangeText={setEmail}
                 onFocus={() => setIsEmailFocused(true)}
                 onBlur={() => setIsEmailFocused(false)}
                 placeholder={isEmailFocused ? '' : 'email address'}
-                className='flex-1 text-black pr-2 font-ron'
-                placeholderTextColor='#5C5C5C'/>
+                className='flex-1 text-tempBlack pr-2 font-ron'
+                placeholderTextColor='#3A3A3A'/>
             </View>
             {/* password */}
             <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-3 w-3/4 flex-row items-center space-x-10' >
-                <FontAwesome name="lock" size={20} color="#5C5C5C" className='mr-3'/>
+                <FontAwesome name="lock" size={20} color="#C44422" className='mr-3'/>
                 <TextInput
                 value={password}
                 onChangeText={setPassword}
@@ -43,14 +43,14 @@ export default function LoginPage() {
                 onBlur={() => setIsPasswordFocused(false)}
                 placeholder={!isPasswordFocused && password === '' ? 'password' : ''}
                 secureTextEntry = {!showPassword}
-                className='flex-1 text-black pr-2 font-ron'
-                placeholderTextColor='#5C5C5C'/>
+                className='flex-1 text-tempBlack pr-2 font-ron'
+                placeholderTextColor='#3A3A3A'/>
 
                 <Pressable onPress={() => setShowPassword(prev => !prev)}>
                     <FontAwesome
                     name={showPassword ? 'eye' : 'eye-slash'}
                     size={18}
-                    color='#5C5C5C'
+                    color='#91351C'
                     />
                 </Pressable>
             </View>
@@ -60,7 +60,7 @@ export default function LoginPage() {
             </Link>
             {/* button */}
             <TouchableOpacity className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'>
-                <Text className='text-white text-xl font-ron-bold tracking-'>Login!</Text>
+                <Text className='text-white text-xl font-ron-bold tracking-widest'>Login!</Text>
             </TouchableOpacity> 
             {/* redirection sign up */}
             <View className='flex-row items-center'>
