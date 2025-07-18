@@ -8,6 +8,7 @@ import {
   TextInput,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import GoogleIcon from "../../assets/images/icons/Google.svg";
 
 const bgImage = require("../../assets/images/background/index.webp");
 
@@ -30,7 +31,7 @@ export default function CreateAccount() {
   return (
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
       {/* header */}
-      <View className="items-center mb-8">
+      <View className="items-center mb-6">
         <Text className="text-4xl font-extrabold text-headerColor mb-4 font-inter tracking-widest">
           Create Account
         </Text>
@@ -120,7 +121,7 @@ export default function CreateAccount() {
       </View>
 
       {/* checkbox */}
-      <View className="flex-row items-center space-x-10 mb-14 justify-items-start w-3/4 pl-3">
+      <View className="flex-row items-center space-x-10 mb-8 justify-items-start w-3/4 pl-3">
         <Pressable
           className="size-7 rounded-md bg-textBoxWhite flex justify-center p-0 items-center"
           onPress={() => setChecked(!checked)}
@@ -134,18 +135,34 @@ export default function CreateAccount() {
         </Text>
       </View>
       {/* button */}
-      <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12">
+      <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
         <Text className="text-white text-xl font-semibold tracking-widest">
           Sign Up!
         </Text>
       </TouchableOpacity>
 
       {/* divider */}
-
+      <View className="flex-row items-center my-10 w-3/4">
+        <View className="flex-1 h-px bg-textBoxWhite" />
+        <Text className="mx-3 text-textBoxWhite text-sm">Or sign up with</Text>
+        <View className="flex-1 h-px bg-textBoxWhite" />
+      </View>
       {/* google button */}
-      <TouchableOpacity></TouchableOpacity>
+      <TouchableOpacity className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
+        <View className="flex-row items-center gap-x-3">
+          <GoogleIcon width={20} height={20} />
+          <Text className="font-ron tracking-wide">Sign Up With Google</Text>
+        </View>
+      </TouchableOpacity>
       {/* facebook button */}
-      <TouchableOpacity></TouchableOpacity>
+      <TouchableOpacity className="bg-blue-700 py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12">
+        <View className="flex-row items-center gap-x-3">
+          <FontAwesome name="facebook-square" color="#FFFFFF" size={20} />
+          <Text className="text-textBoxWhite font-ron tracking-wide">
+            Sign Up With Facebook{" "}
+          </Text>
+        </View>
+      </TouchableOpacity>
       {/* redirect login */}
       <View className="flex-row items-center">
         <Text className="text-subheaderColor font-ron">
