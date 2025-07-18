@@ -2,6 +2,7 @@ import React, {useState } from 'react';
 import { Link } from 'expo-router';
 import { View, Text, TextInput, Pressable, TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { authClient } from '@/lib/auth-client';
 
 const bgImage = require('../../assets/images/background/index.webp');
 
@@ -13,6 +14,13 @@ export default function LoginPage() {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleLogin = async () => {
+        await authClient.signIn.email({
+            email,
+            password,
+        })
+    }
     
     return (
         <View
@@ -59,7 +67,10 @@ export default function LoginPage() {
                 <Text className='justify-items-end text-right italic pr-1 text-sm text-subheaderColor'>Forgot password?</Text>
             </Link>
             {/* button */}
-            <TouchableOpacity className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'>
+            <TouchableOpacity 
+                className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'
+                onPress={handleLogin}
+            >
                 <Text className='text-white text-xl font-ron-bold tracking-widest'>Login!</Text>
             </TouchableOpacity> 
             {/* redirection sign up */}
