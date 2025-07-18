@@ -36,6 +36,7 @@ export default function CreateAccount() {
           Create Account
         </Text>
       </View>
+
       {/* name */}
       <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
@@ -49,6 +50,7 @@ export default function CreateAccount() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
+
       {/* email */}
       <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10">
         <FontAwesome
@@ -134,6 +136,7 @@ export default function CreateAccount() {
           Agree with Terms and Conditions
         </Text>
       </View>
+
       {/* button */}
       <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
         <Text className="text-white text-xl font-semibold tracking-widest">
@@ -147,6 +150,7 @@ export default function CreateAccount() {
         <Text className="mx-3 text-textBoxWhite text-sm">Or sign up with</Text>
         <View className="flex-1 h-px bg-textBoxWhite" />
       </View>
+
       {/* google button */}
       <TouchableOpacity className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
         <View className="flex-row items-center gap-x-3">
@@ -154,8 +158,9 @@ export default function CreateAccount() {
           <Text className="font-ron tracking-wide">Sign Up With Google</Text>
         </View>
       </TouchableOpacity>
+
       {/* facebook button */}
-      <TouchableOpacity className="bg-blue-700 py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12">
+      <TouchableOpacity className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12">
         <View className="flex-row items-center gap-x-3">
           <FontAwesome name="facebook-square" color="#FFFFFF" size={20} />
           <Text className="text-textBoxWhite font-ron tracking-wide">
@@ -163,6 +168,7 @@ export default function CreateAccount() {
           </Text>
         </View>
       </TouchableOpacity>
+
       {/* redirect login */}
       <View className="flex-row items-center">
         <Text className="text-subheaderColor font-ron">

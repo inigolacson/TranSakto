@@ -5,26 +5,27 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        headerColor: '#E2E2E2',
+        headerColor: "#E2E2E2",
         subheaderColor: "#C2C1C0",
-        tempBlack: '#161616',
-        buttonOrange: 'rgba(244, 124, 83, 0.6)',
-        textBoxWhite: 'rgba(255, 255, 255, 0.9)'
+        tempBlack: "#161616",
+        buttonOrange: "rgba(244, 124, 83, 0.6)",
+        textBoxWhite: "rgba(255, 255, 255, 0.9)",
+        facebookBlue: "#1877F2",
       },
       fontFamily: {
-        'inter': ['Inter-Regular'],
-        'inter-italic' : ['Inter-Italic'],
-        'ron': ['Ronzino-Regular'],
-        'ron-medium': ['Ronzino-Medium'],
-        'ron-bold':['Ronzino-Bold'],
-        'ron-oblique': ['Ronzino-Oblique'],
-        'ron-medium-oblique': ['Ronzino-MediumOblique'],
-        'ron-bold-oblique': ['Ronzino-BoldOblique'],
-      }
+        inter: ["Inter-Regular"],
+        "inter-italic": ["Inter-Italic"],
+        ron: ["Ronzino-Regular"],
+        "ron-medium": ["Ronzino-Medium"],
+        "ron-bold": ["Ronzino-Bold"],
+        "ron-oblique": ["Ronzino-Oblique"],
+        "ron-medium-oblique": ["Ronzino-MediumOblique"],
+        "ron-bold-oblique": ["Ronzino-BoldOblique"],
+      },
     },
   },
   plugins: [],
-}
+};
 
 // font reference
 // Tailwind Class      | Numeric Weight | Description
