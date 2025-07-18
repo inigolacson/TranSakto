@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'expo-router';
 import { View, Text, TouchableOpacity, Pressable, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { authClient } from '@/lib/auth-client';
 
 const bgImage = require('../../assets/images/background/index.webp')
 
@@ -16,6 +17,16 @@ export default function CreateAccount() {
     const [email, setEmail] = useState('');
     const [emailConfirm, setEmailConfirm] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleSignUp = async () => {
+        console.log("test")
+        console.log(process.env.EXPO_PUBLIC_API_URL)
+        await authClient.signUp.email({
+            name: "User", // TODO: Implement name input
+            email,
+            password
+        })
+    }
     
     return (
         <View
@@ -80,7 +91,10 @@ export default function CreateAccount() {
                 <Text className=' ml-2 text-sm font-ron text-subheaderColor'>Agree with Terms and Conditions</Text>
             </View>
             {/* button */}
-            <TouchableOpacity className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'>
+            <TouchableOpacity
+                className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'
+                onPress={handleSignUp}
+            >
                 <Text className='text-white text-xl font-semibold tracking-widest'>Sign Up!</Text>
             </TouchableOpacity>
             {/* redirect login */}
