@@ -73,7 +73,7 @@ export default function CreateAccount() {
             </View>
             {/* checkbox */}
             <View className='flex-row items-center space-x-10 mb-14 justify-items-start w-3/4 pl-3' >
-                <Pressable className='h-6 w-6 rounded-md bg-textBoxWhite items-center'
+                <Pressable className='size-7 rounded-md bg-textBoxWhite flex justify-center p-0 items-center'
                 onPress={() => setChecked(!checked)}>
                 {checked && <Text className='text-tempBlack font-bold text-xl'>✓</Text>}
                 </Pressable>
