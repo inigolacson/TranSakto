@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { use, useState } from 'react';
 import { Link } from 'expo-router';
 import { View, Text, TouchableOpacity, Pressable, TextInput } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
@@ -7,10 +7,11 @@ const bgImage = require('../../assets/images/background/index.webp')
 
 export default function CreateAccount() {
     const [isEmailFocused, setIsEmailFocused] = useState(false);
-    const [isConfirmEmailFocused, setIsConfirmEmailFocused] = useState(false);
+    const [isConfirmPasswordFocused, setIsConfirmPasswordFocused] = useState(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState(false);
     
     const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [checked, setChecked] = useState(false)
 
     const [email, setEmail] = useState('');
@@ -37,19 +38,7 @@ export default function CreateAccount() {
                 placeholderTextColor='#3A3A3A'
                 />
             </View>
-            {/* confirm email */}
-            <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10'>
-                <FontAwesome name='user' size={20} color="#C44422" className='mr-3'/>
-                <TextInput
-                value={emailConfirm}
-                onChangeText={setEmailConfirm}
-                onFocus={() => setIsConfirmEmailFocused(true)}
-                onBlur={() => setIsConfirmEmailFocused(false)}
-                placeholder={ isConfirmEmailFocused ? '' : 'confirm email address'}
-                className='flex-1 text-tempBlack pr-2 font-ron'
-                placeholderTextColor="#3A3A3A"
-                />
-            </View>
+
             {/* password */}
             <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-4 w-3/4 flex-row items-center space-x-10'>
                 <FontAwesome name='lock' size={20} color="#C44422" className='mr-3'/>
@@ -57,7 +46,8 @@ export default function CreateAccount() {
                 value={password}
                 onChangeText={setPassword}
                 onFocus={() => setIsPasswordFocused(true)}
-                onBlur={() => setIsPasswordFocused(false)}
+                onBlur={() => { setIsPasswordFocused(false);
+                        setShowPassword(false); }}
                 placeholder={ isPasswordFocused ? '' : 'password'}
                 secureTextEntry = {!showPassword}
                 className='flex-1 text-tempBlack pr-2 font-ron'
@@ -71,13 +61,37 @@ export default function CreateAccount() {
                     />
                 </Pressable>
             </View>
+
+            {/* confirm password */}
+            <View className='bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10'>
+                <FontAwesome name='lock' size={20} color="#C44422" className='mr-3'/>
+                <TextInput
+                value={emailConfirm}
+                onChangeText={setEmailConfirm}
+                onFocus={() => setIsConfirmPasswordFocused(true)}
+                onBlur={() => {setIsConfirmPasswordFocused(false);
+                             setShowConfirmPassword(false); }}
+                placeholder= { isConfirmPasswordFocused ? '' : 'confirm password'}
+                secureTextEntry= {!showConfirmPassword}
+                className='flex-1 text-tempBlack pr-2 font-ron'
+                placeholderTextColor="#3A3A3A"/>
+
+                <Pressable onPress={() => setShowConfirmPassword (prev => !prev)}>
+                    <FontAwesome
+                    name={showConfirmPassword ? 'eye' : 'eye-slash'}
+                    size={18}
+                    color='#91351C'
+                    />
+                </Pressable>
+            </View>
+            
             {/* checkbox */}
             <View className='flex-row items-center space-x-10 mb-14 justify-items-start w-3/4 pl-3' >
                 <Pressable className='size-7 rounded-md bg-textBoxWhite flex justify-center p-0 items-center'
                 onPress={() => setChecked(!checked)}>
                 {checked && <Text className='text-tempBlack font-bold text-xl'>✓</Text>}
                 </Pressable>
-                <Text className=' ml-2 text-sm font-ron text-subheaderColor'>Agree with Terms and Conditions</Text>
+                <Text className=' ml-3 text-sm font-ron text-subheaderColor'>Agree with Terms and Conditions</Text>
             </View>
             {/* button */}
             <TouchableOpacity className='bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12'>
