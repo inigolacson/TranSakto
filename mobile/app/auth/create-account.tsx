@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import GoogleIcon from "../../assets/images/icons/Google.svg";
+import { authClient } from "@/lib/auth-client";
 
 const bgImage = require("../../assets/images/background/index.webp");
 
@@ -27,6 +28,16 @@ export default function CreateAccount() {
   const [email, setEmail] = useState("");
   const [emailConfirm, setEmailConfirm] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSignUp = async () => {
+    console.log("test");
+    console.log(process.env.EXPO_PUBLIC_API_URL);
+    await authClient.signUp.email({
+      name: "User", // TODO: Implement name input
+      email,
+      password,
+    });
+  };
 
   return (
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
@@ -138,7 +149,10 @@ export default function CreateAccount() {
       </View>
 
       {/* button */}
-      <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
+      <TouchableOpacity
+        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center"
+        onPress={handleSignUp}
+      >
         <Text className="text-white text-xl font-semibold tracking-widest">
           Sign Up!
         </Text>

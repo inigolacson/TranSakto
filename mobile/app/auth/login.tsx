@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import GoogleIcon from "../../assets/images/icons/Google.svg";
+import { authClient } from "@/lib/auth-client";
 
 const bgImage = require("../../assets/images/background/index.webp");
 
@@ -20,6 +21,13 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    await authClient.signIn.email({
+      email,
+      password,
+    });
+  };
 
   return (
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
@@ -75,7 +83,10 @@ export default function LoginPage() {
       </Link>
 
       {/* button */}
-      <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
+      <TouchableOpacity
+        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center"
+        onPress={handleLogin}
+      >
         <Text className="text-white text-xl font-ron-bold tracking-widest">
           Login!
         </Text>
