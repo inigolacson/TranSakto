@@ -118,12 +118,22 @@ export default function LoginPage() {
       </TouchableOpacity>
 
       {/* redirection sign up */}
-      <View className="flex-row items-center">
+      <View className="flex-row items-center mb-4">
         <Text className="font-ron text-subheaderColor">
           First time managing a business?{" "}
         </Text>
         <Link href="/auth/create-account" asChild>
           <Text className="text-buttonOrange font-ron ">Sign Up!</Text>
+        </Link>
+
+        {/*redirection for onboard FOR TESTING*/}
+      </View>
+      <View className="flex-row items-center">
+        <Text className="font-ron text-subheaderColor">
+          Redirection to Onboarding{" "}
+        </Text>
+        <Link href="/setup" asChild>
+          <Text className="text-buttonOrange font-ron ">Temporary!</Text>
         </Link>
       </View>
     </View>
