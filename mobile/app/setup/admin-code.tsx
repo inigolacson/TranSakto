@@ -57,7 +57,7 @@ export default function AdminPOS() {
             className="w-28 h-28 bg-textBoxWhite justify-center rounded-3xl items-center mx-2 my-2"
             onPress={() => handleKeyPress(key.value)}
           >
-            <Text className="text-tempBlack font-bold text-xl">
+            <Text className="text-tempBlack font-bold font-ron text-3xl">
               {key.label}
             </Text>
           </TouchableOpacity>
