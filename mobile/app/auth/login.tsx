@@ -130,10 +130,10 @@ export default function LoginPage() {
       </View>
       <View className="flex-row items-center">
         <Text className="font-ron text-subheaderColor">
-          First time managing a business?{" "}
+          Redirection to Onboarding{" "}
         </Text>
         <Link href="/setup" asChild>
-          <Text className="text-buttonOrange font-ron ">Sign Up!</Text>
+          <Text className="text-buttonOrange font-ron ">Temporary!</Text>
         </Link>
       </View>
     </View>
