@@ -1,6 +1,7 @@
 import React, { use, useState } from "react";
 import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
 export default function OnboardingTwo() {
   const [name, setName] = useState("");
@@ -60,11 +61,13 @@ export default function OnboardingTwo() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
-      <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
-        <Text className="text-white text-xl font-semibold tracking-widest">
-          Continue!
-        </Text>
-      </TouchableOpacity>
+      <Link href="/setup/admin-code" asChild>
+        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
+          <Text className="text-white text-xl font-semibold tracking-widest">
+            Continue!
+          </Text>
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 }
