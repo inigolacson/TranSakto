@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { Link } from "expo-router";
 
 type FontAwesomeIconName = keyof typeof FontAwesome.glyphMap;
 
@@ -56,11 +57,13 @@ export default function OnboardingOne() {
         })}
       </View>
       <View className="mt-14 w-full justify-center items-center">
-        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full w-9/12 items-center">
-          <Text className="text-textBoxWhite font-ron-bold text-xl">
-            Continue
-          </Text>
-        </TouchableOpacity>
+        <Link href="/setup/onboarding-two" asChild>
+          <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full w-9/12 items-center">
+            <Text className="text-textBoxWhite font-ron-bold text-xl">
+              Continue
+            </Text>
+          </TouchableOpacity>
+        </Link>
       </View>
     </View>
   );
