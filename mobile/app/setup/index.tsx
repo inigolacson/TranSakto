@@ -59,7 +59,7 @@ export default function OnboardingOne() {
       <View className="mt-14 w-full justify-center items-center">
         <Link href="/setup/onboarding-two" asChild>
           <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full w-9/12 items-center">
-            <Text className="text-textBoxWhite font-ron-bold text-xl">
+            <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
               Continue
             </Text>
           </TouchableOpacity>
