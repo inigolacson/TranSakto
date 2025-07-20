@@ -11,6 +11,7 @@ module.exports = {
         buttonOrange: "rgba(244, 124, 83, 0.6)",
         textBoxWhite: "rgba(255, 255, 255, 0.9)",
         facebookBlue: "#1877F2",
+        buttonSelected: "rgba(224, 100, 60, 1)",
       },
       fontFamily: {
         inter: ["Inter-Regular"],
