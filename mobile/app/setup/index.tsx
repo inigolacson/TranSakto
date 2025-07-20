@@ -30,7 +30,7 @@ export default function OnboardingOne() {
   return (
     <View className="flex-1 justify-center items-center w-full h-full bg-tempBlack">
       {/* header */}
-      <Text className="font-ron-bold text-textBoxWhite text-5xl w-3/4 tracking-wider mb-10">
+      <Text className="font-inter font-extrabold text-textBoxWhite text-5xl w-3/4 tracking-wider mb-10 leading-tight ">
         What type of business do you own?
       </Text>
 
