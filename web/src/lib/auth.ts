@@ -21,6 +21,13 @@ export const auth = betterAuth({
       redirectURI:
         "https://13adc79122f4.ngrok-free.app/api/auth/callback/google",
     },
+
+    facebook: {
+      clientId: process.env.FACEBOOK_CLIENT_ID!,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
+      redirectURI:
+        "https://cc57fd84e5d0.ngrok-free.app/api/auth/callback/facebook",
+    },
   },
 
   plugins: [openAPI(), expo(), oAuthProxy()],
