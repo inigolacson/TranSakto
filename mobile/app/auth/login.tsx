@@ -29,6 +29,13 @@ export default function LoginPage() {
     });
   };
 
+  const handleOAuth = async (provider: string) => {
+    const data = await authClient.signIn.social({
+      provider: provider,
+      callbackURL: "/setup"
+    })
+  };
+
   return (
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
       {/* header */}
@@ -100,7 +107,10 @@ export default function LoginPage() {
       </View>
 
       {/* google button */}
-      <TouchableOpacity className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
+      <TouchableOpacity
+        onPress={() => handleOAuth("google")}
+        className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5"
+      >
         <View className="flex-row items-center gap-x-3">
           <GoogleIcon width={20} height={20} />
           <Text className="font-ron tracking-wide">Sign In With Google</Text>
@@ -108,7 +118,10 @@ export default function LoginPage() {
       </TouchableOpacity>
 
       {/* facebook button */}
-      <TouchableOpacity className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12">
+      <TouchableOpacity
+        onPress={() => handleOAuth("facebook")}
+        className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12"
+      >
         <View className="flex-row items-center gap-x-3">
           <FontAwesome name="facebook-square" color="#FFFFFF" size={20} />
           <Text className="text-textBoxWhite font-ron tracking-wide">
