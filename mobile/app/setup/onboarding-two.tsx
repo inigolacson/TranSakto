@@ -21,7 +21,7 @@ export default function OnboardingTwo() {
       <View className="w-3/5 items-center justify-center mb-6">
         <Text className="text-subheaderColor text-center font-ron leading-6 text-lg">
           These details will appear on your receipts and help you set up your
-          store's identity.
+          store's identity (you can fill these out later).
         </Text>
       </View>
       <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
