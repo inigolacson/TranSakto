@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "pos_system_mob",
-    "slug": "pos_system_mob",
+    "name": "TranSakto",
+    "slug": "transakto",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "possystemmob",
+    "scheme": "transakto",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
