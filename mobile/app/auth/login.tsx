@@ -10,6 +10,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import GoogleIcon from "../../assets/images/icons/Google.svg";
 import { authClient } from "@/lib/auth-client";
+import { handleOAuth } from "@/lib/utils";
 
 const bgImage = require("../../assets/images/background/index.webp");
 
@@ -27,13 +28,6 @@ export default function LoginPage() {
       email,
       password,
     });
-  };
-
-  const handleOAuth = async (provider: string) => {
-    const data = await authClient.signIn.social({
-      provider: provider,
-      callbackURL: "/setup"
-    })
   };
 
   return (
