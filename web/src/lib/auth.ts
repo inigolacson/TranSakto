@@ -19,17 +19,17 @@ export const auth = betterAuth({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
       redirectURI:
-        "https://13adc79122f4.ngrok-free.app/api/auth/callback/google",
+        "https://transakto.vercel.app/api/auth/callback/google",
     },
 
     facebook: {
       clientId: process.env.FACEBOOK_CLIENT_ID!,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
       redirectURI:
-        "https://cc57fd84e5d0.ngrok-free.app/api/auth/callback/facebook",
+        "https://transakto.vercel.app/api/auth/callback/facebook",
     },
   },
 
   plugins: [openAPI(), expo(), oAuthProxy()],
-  trustedOrigins: ["possystemmob://", "exp://192.168.100.10:8081"],
+  trustedOrigins: ["exp://"],
 });
