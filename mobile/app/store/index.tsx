@@ -55,7 +55,7 @@ export default function StoreSelect() {
             (option) => option.value === store.type,
           )[0];
           return (
-            <TouchableOpacity className="flex-row items-center bg-textBoxWhite w-full rounded-md py-4 px-8 mb-4">
+            <TouchableOpacity key={store.id} className="flex-row items-center bg-textBoxWhite w-full rounded-md py-4 px-8 mb-4">
               <FontAwesome
                 name={icon.icon}
                 size={14}
