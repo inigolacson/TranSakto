@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import {
   View,
   Text,
@@ -24,6 +24,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
+    console.log(process.env.EXPO_PUBLIC_API_URL)
     await authClient.signIn.email({
       email,
       password,
@@ -140,7 +141,7 @@ export default function LoginPage() {
         <Text className="font-ron text-subheaderColor">
           Redirection to Onboarding{" "}
         </Text>
-        <Link href="/setup" asChild>
+        <Link href="/store/create-1" asChild>
           <Text className="text-buttonOrange font-ron ">Temporary!</Text>
         </Link>
       </View>

@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import {
   View,
   Text,
@@ -31,12 +31,12 @@ export default function CreateAccount() {
   const [password, setPassword] = useState("");
 
   const handleSignUp = async () => {
+    console.log(process.env.EXPO_PUBLIC_API_URL)
     await authClient.signUp.email({
       name: "User", // TODO: Implement name input
       email,
       password,
-      callbackURL: "/store/create-1"
-    });
+    }).then(() => router.push("/store/create-1")); // TODO: Implement server error checking
   };
 
   return (
