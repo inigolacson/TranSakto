@@ -31,12 +31,14 @@ export default function CreateAccount() {
   const [password, setPassword] = useState("");
 
   const handleSignUp = async () => {
-    console.log(process.env.EXPO_PUBLIC_API_URL)
-    await authClient.signUp.email({
-      name: "User", // TODO: Implement name input
-      email,
-      password,
-    }).then(() => router.push("/store/create-1")); // TODO: Implement server error checking
+    console.log(process.env.EXPO_PUBLIC_API_URL);
+    await authClient.signUp
+      .email({
+        name: "User", // TODO: Implement name input
+        email,
+        password,
+      })
+      .then(() => router.push("../store/create-1")); // TODO: Implement server error checking
   };
 
   return (
@@ -166,9 +168,10 @@ export default function CreateAccount() {
       </View>
 
       {/* google button */}
-      <TouchableOpacity 
+      <TouchableOpacity
         onPress={() => handleOAuth("google")}
-        className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
+        className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5"
+      >
         <View className="flex-row items-center gap-x-3">
           <GoogleIcon width={20} height={20} />
           <Text className="font-ron tracking-wide">Sign Up With Google</Text>
@@ -176,9 +179,10 @@ export default function CreateAccount() {
       </TouchableOpacity>
 
       {/* facebook button */}
-      <TouchableOpacity 
+      <TouchableOpacity
         onPress={() => handleOAuth("facebook")}
-        className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12">
+        className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12"
+      >
         <View className="flex-row items-center gap-x-3">
           <FontAwesome name="facebook-square" color="#FFFFFF" size={20} />
           <Text className="text-textBoxWhite font-ron tracking-wide">

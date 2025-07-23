@@ -57,7 +57,7 @@ export default function OnboardingOne() {
         })}
       </View>
       <View className="mt-14 w-full justify-center items-center">
-        <Link href="/store/create-2" asChild>
+        <Link href="./create-2" asChild>
           <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full w-9/12 items-center">
             <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
               Continue
