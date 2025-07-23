@@ -35,6 +35,7 @@ export default function CreateAccount() {
       name: "User", // TODO: Implement name input
       email,
       password,
+      callbackURL: "/store/create-1"
     });
   };
 

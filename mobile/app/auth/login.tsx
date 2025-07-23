@@ -27,6 +27,7 @@ export default function LoginPage() {
     await authClient.signIn.email({
       email,
       password,
+      callbackURL: "/store"
     });
   };
 
