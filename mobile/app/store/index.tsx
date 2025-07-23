@@ -52,10 +52,13 @@ export default function StoreSelect() {
         {stores.map((store) => {
           // Get icon based from store type
           const icon = businessOptions.filter(
-            (option) => option.value === store.type,
+            (option) => option.value === store.type
           )[0];
           return (
-            <TouchableOpacity key={store.id} className="flex-row items-center bg-textBoxWhite w-full rounded-md py-4 px-8 mb-4">
+            <TouchableOpacity
+              key={store.id}
+              className="flex-row items-center bg-textBoxWhite w-full rounded-md py-4 px-8 mb-4"
+            >
               <FontAwesome
                 name={icon.icon}
                 size={14}

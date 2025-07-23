@@ -3,7 +3,7 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-export default function SetupLayout() {
+export default function StoreLayout() {
   return (
     <SafeAreaProvider>
       <Stack
