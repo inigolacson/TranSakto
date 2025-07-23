@@ -31,8 +31,6 @@ export default function CreateAccount() {
   const [password, setPassword] = useState("");
 
   const handleSignUp = async () => {
-    console.log("test");
-    console.log(process.env.EXPO_PUBLIC_API_URL);
     await authClient.signUp.email({
       name: "User", // TODO: Implement name input
       email,
