@@ -141,7 +141,7 @@ export default function LoginPage() {
         <Text className="font-ron text-subheaderColor">
           Redirection to Onboarding{" "}
         </Text>
-        <Link href="../store/create-1" asChild>
+        <Link href="/store/create-1" asChild>
           <Text className="text-buttonOrange font-ron ">Temporary!</Text>
         </Link>
       </View>

@@ -61,7 +61,7 @@ export default function OnboardingTwo() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
-      <Link href="./admin-code" asChild>
+      <Link href="/store/admin-code" asChild>
         <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
           <Text className="text-white text-xl font-semibold tracking-widest">
             Continue!

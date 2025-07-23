@@ -38,7 +38,7 @@ export default function CreateAccount() {
         email,
         password,
       })
-      .then(() => router.push("../store/create-1")); // TODO: Implement server error checking
+      .then(() => router.push("/store/create-1")); // TODO: Implement server error checking
   };
 
   return (
