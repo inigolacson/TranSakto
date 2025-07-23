@@ -3,7 +3,7 @@ import { router } from "expo-router";
 
 export default function StoreRedirection() {
   useEffect(() => {
-    router.replace("/store/code-login");
+    router.replace("/store/code-login" as any);
   }, []);
 
   return null;
