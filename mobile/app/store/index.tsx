@@ -71,7 +71,7 @@ export default function StoreSelect() {
       </View>
       {/* add another store */}
       <View className="px-8 w-full">
-        <TouchableOpacity className="bg-buttonOrange py-4 py-12 items-center text-center rounded-md">
+        <TouchableOpacity className="bg-buttonOrange py-4 items-center text-center rounded-md">
           <Text className="text-subheaderColor font-ron-bold">
             Add Another Store
           </Text>
