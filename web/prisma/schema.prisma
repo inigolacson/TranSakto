@@ -7,6 +7,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  admin
+  cashier
+}
+
+enum StoreType {
+  restaurant
+  cafe
+  salon
+}
+
 model User {
   id    String @id @default(uuid())
   name  String
@@ -25,24 +36,33 @@ model User {
 }
 
 model Store {
-  id     String @id @default(uuid())
-  name   String
-  userId String
+  id           String @id @default(uuid())
+  name         String
+  userId       String
+  address      String?
+  number       String?
+  logoUrl      String?
+  tagline      String?
+  regTin       String?
+  permitNumber String?
 
-  user     User      @relation(fields: [userId], references: [id])
-  cashiers Cashier[]
+  storeType StoreType
+  user      User      @relation(fields: [userId], references: [id])
+  employee  Employee[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Cashier {
+model Employee {
   id      String @id @default(uuid())
   name    String
   storeId String
-
+  pin     String
+  
+  role         Role 
   store        Store         @relation(fields: [storeId], references: [id])
-  transactions Receipt[]
+  receipts     Receipt[]
   products     Product[]
 
   createdAt DateTime @default(now())
@@ -52,10 +72,11 @@ model Cashier {
 model Receipt {
   id            String   @id @default(uuid())
   dateTime      DateTime
-  cashierId     String
+  printedAt     DateTime?
+  employeeId    String
   cashReceived  Float
 
-  cashier          Cashier           @relation(fields: [cashierId], references: [id])
+  employee         Employee           @relation(fields: [employeeId], references: [id])
   transactionItems TransactionItem[]
 
   createdAt DateTime @default(now())
@@ -63,14 +84,14 @@ model Receipt {
 }
 
 model Product {
-  id        String  @id @default(uuid())
-  name      String
-  imageUrl  String?
-  price     Decimal
-  cashierId String
-  stock     Int
+  id          String  @id @default(uuid())
+  name        String
+  imageUrl    String?
+  price       Decimal
+  employeeId  String
+  stock       Int
 
-  cashier          Cashier           @relation(fields: [cashierId], references: [id])
+  employee         Employee           @relation(fields: [employeeId], references: [id])
   transactionItems TransactionItem[]
 
   createdAt DateTime @default(now())
@@ -79,17 +100,17 @@ model Product {
 
 model TransactionItem {
   productId     String
-  transactionId String
+  receiptId     String
   price         Decimal
   quantity      Int
 
   product     Product     @relation(fields: [productId], references: [id])
-  transaction Receipt @relation(fields: [transactionId], references: [id])
+  receipt Receipt @relation(fields: [receiptId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@id([productId, transactionId])
+  @@id([productId, receiptId])
 }
 
 model Session {
