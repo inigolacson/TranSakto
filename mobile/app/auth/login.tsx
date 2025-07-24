@@ -79,7 +79,7 @@ export default function LoginPage() {
       </View>
 
       {/* forgot password */}
-      <Link href="/auth/create-account" asChild className="mb-10 w-3/4">
+      <Link href="/auth/forgot-1" asChild className="mb-10 w-3/4">
         <Text className="justify-items-end text-right italic pr-1 text-sm text-subheaderColor">
           Forgot password?
         </Text>
