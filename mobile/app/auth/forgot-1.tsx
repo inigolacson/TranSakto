@@ -41,7 +41,7 @@ export default function ForgotOne() {
           placeholderTextColor="#3A3A3A"
         ></TextInput>
       </View>
-      <Link href="/auth/forgot-3" asChild>
+      <Link href="/auth/forgot-2" asChild>
         <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
           <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
             Send Code

@@ -79,11 +79,13 @@ export default function ForgotThree() {
       </View>
 
       {/* button */}
-      <View>
-        <Link href="/auth/forgot-3" asChild>
-          <Text></Text>
-        </Link>
-      </View>
+      <Link href="/auth/forgot-3" asChild>
+        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
+          <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
+            Reset Password
+          </Text>
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 }
