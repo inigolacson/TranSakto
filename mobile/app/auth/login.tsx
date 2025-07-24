@@ -24,11 +24,11 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    console.log(process.env.EXPO_PUBLIC_API_URL)
+    console.log(process.env.EXPO_PUBLIC_API_URL);
     await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/store"
+      callbackURL: "/store",
     });
   };
 
@@ -36,7 +36,7 @@ export default function LoginPage() {
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
       {/* header */}
       <View className="items-center mb-6">
-        <Text className=" text-4xl text-headerColor font-inter font-extrabold tracking-widest text-mainBlack mb-4">
+        <Text className=" text-4xl text-headerColor font-inter font-extrabold tracking-widest mb-4">
           Welcome back
         </Text>
       </View>
@@ -79,7 +79,7 @@ export default function LoginPage() {
       </View>
 
       {/* forgot password */}
-      <Link href="/auth/create-account" asChild className="mb-10 w-3/4">
+      <Link href="/auth/forgot-1" asChild className="mb-10 w-3/4">
         <Text className="justify-items-end text-right italic pr-1 text-sm text-subheaderColor">
           Forgot password?
         </Text>
