@@ -36,7 +36,7 @@ export default function LoginPage() {
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
       {/* header */}
       <View className="items-center mb-6">
-        <Text className=" text-4xl text-headerColor font-inter font-extrabold tracking-widest text-mainBlack mb-4">
+        <Text className=" text-4xl text-headerColor font-inter font-extrabold tracking-widest mb-4">
           Welcome back
         </Text>
       </View>

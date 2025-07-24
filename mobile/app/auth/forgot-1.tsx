@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { Link } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 
 export default function ForgotOne() {
@@ -40,11 +41,13 @@ export default function ForgotOne() {
           placeholderTextColor="#3A3A3A"
         ></TextInput>
       </View>
-      <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
-        <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
-          Send Code
-        </Text>
-      </TouchableOpacity>
+      <Link href="/auth/forgot-3" asChild>
+        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
+          <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
+            Send Code
+          </Text>
+        </TouchableOpacity>
+      </Link>
     </View>
   );
 }
