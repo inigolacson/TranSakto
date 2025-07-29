@@ -11,6 +11,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import GoogleIcon from "../../assets/images/icons/Google.svg";
 import { authClient } from "@/lib/auth-client";
 import { handleOAuth } from "@/lib/utils";
+import { loginSchema, LoginFormData, LoginErrors } from "@/schemas/loginSchema";
 
 const bgImage = require("../../assets/images/background/index.webp");
 
@@ -20,11 +21,28 @@ export default function LoginPage() {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState<LoginFormData>({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState<LoginErrors>({});
 
   const handleLogin = async () => {
-    console.log(process.env.EXPO_PUBLIC_API_URL);
+    const validation = loginSchema.safeParse(formData);
+    if (!validation.success) {
+      const errors: LoginErrors = {};
+      validation.error.issues.forEach((issue) => {
+        const field = issue.path[0];
+        errors[field as keyof LoginErrors] = issue.message;
+      });
+      setErrors(errors);
+      console.log(errors)
+      return;
+    } else {
+      setErrors({});
+    }
+
+    const { email, password } = validation.data;
     await authClient.signIn.email({
       email,
       password,
@@ -42,11 +60,14 @@ export default function LoginPage() {
       </View>
 
       {/* email */}
-      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10">
+      <View
+        className={`bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10 
+                    ${errors?.email && "border-2 border-red-500"}`}
+      >
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
-          value={email}
-          onChangeText={setEmail}
+          value={formData.email}
+          onChangeText={(email) => setFormData({ ...formData, email })}
           onFocus={() => setIsEmailFocused(true)}
           onBlur={() => setIsEmailFocused(false)}
           placeholder={isEmailFocused ? "" : "email address"}
@@ -56,14 +77,17 @@ export default function LoginPage() {
       </View>
 
       {/* password */}
-      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-3 w-3/4 flex-row items-center space-x-10">
+      <View
+        className={`bg-textBoxWhite rounded-full py-2 px-8 mb-3 w-3/4 flex-row items-center space-x-10
+                    ${errors?.password && "border-2 border-red-500"}`}
+      >
         <FontAwesome name="lock" size={20} color="#C44422" className="mr-3" />
         <TextInput
-          value={password}
-          onChangeText={setPassword}
+          value={formData.password}
+          onChangeText={(password) => setFormData({ ...formData, password })}
           onFocus={() => setIsPasswordFocused(true)}
           onBlur={() => setIsPasswordFocused(false)}
-          placeholder={!isPasswordFocused && password === "" ? "password" : ""}
+          placeholder={isPasswordFocused ? "" : "password"}
           secureTextEntry={!showPassword}
           className="flex-1 text-tempBlack pr-2 font-ron"
           placeholderTextColor="#3A3A3A"
