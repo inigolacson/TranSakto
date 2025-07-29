@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "PoS System",
+  "name": "TranSakto",
   "type": "collection",
   "ignore": [
     "node_modules",
@@ -10,6 +10,6 @@
   "filesCount": 1,
   "presets": {
     "requestType": "http",
-    "requestUrl": "http://localhost:3000"
+    "requestUrl": "{{baseUrl}}/"
   }
 }
