@@ -135,13 +135,24 @@ export default function LoginPage() {
           <Text className="text-buttonOrange font-ron ">Sign Up!</Text>
         </Link>
 
-        {/*redirection for onboard FOR TESTING*/}
       </View>
-      <View className="flex-row items-center">
+
+      {/*redirection for onboard FOR TESTING*/}
+      <View className="flex-row items-center mb-4">
         <Text className="font-ron text-subheaderColor">
           Redirection to Onboarding{" "}
         </Text>
         <Link href="/store/create-1" asChild>
+          <Text className="text-buttonOrange font-ron ">Temporary!</Text>
+        </Link>
+      </View>
+
+      {/*redirection for onboard FOR EMAIL VERIFICATION*/}
+      <View className="flex-row items-center">
+        <Text className="font-ron text-subheaderColor">
+          Redirection to Email Verification{" "}
+        </Text>
+        <Link href="/auth/email-verif-1" asChild>
           <Text className="text-buttonOrange font-ron ">Temporary!</Text>
         </Link>
       </View>
