@@ -46,7 +46,7 @@ model Store {
   regTin       String?
   permitNumber String?
 
-  storeType StoreType
+  storeType StoreType?
   user      User      @relation(fields: [userId], references: [id])
   employee  Employee[]
 
