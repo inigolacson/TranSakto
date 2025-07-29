@@ -3,29 +3,14 @@ import {
   View,
   TouchableOpacity,
   Text,
-  TextInput,
-  Pressable,
 } from "react-native";
 import { Link, router } from "expo-router";
+import CodeInput from "@/components/CodeInput";
 import { linkTo } from "expo-router/build/global-state/routing";
 
 export default function ForgotTwo() {
   const [code, setCode] = useState(["", "", "", ""]);
-  const inputs = useRef<Array<TextInput | null>>([]);
 
-  const handleChange = (text: string, index: number) => {
-    const newCode = [...code];
-    newCode[index] = text;
-    setCode(newCode);
-
-    if (text && index < 3) {
-      inputs.current[index + 1]?.focus();
-    }
-
-    if (!text && index > 0) {
-      inputs.current[index - 1]?.focus();
-    }
-  };
   const handleResend = () => {
     console.log("Resend Code");
     //email resend logic
@@ -54,30 +39,7 @@ export default function ForgotTwo() {
       </View>
 
       {/* text boxes */}
-      <View className="flex-row items-center justify-center w-3/4 mb-6 gap-5">
-        {code.map((digit, index) => (
-          <TextInput
-            key={index}
-            ref={(ref) => {
-              inputs.current[index] = ref;
-            }}
-            keyboardType="number-pad"
-            maxLength={1}
-            value={digit}
-            onChangeText={(text) => handleChange(text, index)}
-            className="w-16 h-16 rounded-xl text-center bg-textBoxWhite text-tempBlack font-bold"
-            onKeyPress={({ nativeEvent }) => {
-              if (
-                nativeEvent.key === "Backspace" &&
-                code[index] === "" &&
-                index > 0
-              ) {
-                inputs.current[index - 1]?.focus();
-              }
-            }}
-          />
-        ))}
-      </View>
+      <CodeInput code={code} setCode={setCode} />
 
       {/* received a code */}
       <View className="justify-center items-center mb-6 flex-row ">
