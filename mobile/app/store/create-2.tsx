@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { Link } from "expo-router";
 
@@ -13,7 +13,10 @@ export default function OnboardingTwo() {
   const [isContactFocused, setIsContactFocused] = useState(false);
 
   return (
-    <View className="flex-1 items-center justify-center w-full h-full bg-tempBlack">
+    <KeyboardAvoidingView
+      behavior="padding"
+      className="flex-1 items-center justify-center w-full h-full bg-tempBlack"
+    >
       {/* header */}
       <Text className="text-textBoxWhite font-inter font-extrabold text-4xl tracking-widest mb-4">
         Business Details
@@ -68,6 +71,6 @@ export default function OnboardingTwo() {
           </Text>
         </TouchableOpacity>
       </Link>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
