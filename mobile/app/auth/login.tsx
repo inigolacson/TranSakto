@@ -10,7 +10,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import GoogleIcon from "../../assets/images/icons/Google.svg";
 import { authClient } from "@/lib/auth-client";
-import { handleOAuth } from "@/lib/utils";
+import { handleOAuth, parseErrors } from "@/lib/utils";
 import { loginSchema, LoginFormData, LoginErrors } from "@/schemas/loginSchema";
 
 const bgImage = require("../../assets/images/background/index.webp");
@@ -30,13 +30,8 @@ export default function LoginPage() {
   const handleLogin = async () => {
     const validation = loginSchema.safeParse(formData);
     if (!validation.success) {
-      const errors: LoginErrors = {};
-      validation.error.issues.forEach((issue) => {
-        const field = issue.path[0];
-        errors[field as keyof LoginErrors] = issue.message;
-      });
-      setErrors(errors);
-      console.log(errors)
+      const parsedErrors = parseErrors(validation.error);
+      setErrors(parsedErrors);
       return;
     } else {
       setErrors({});
