@@ -1,12 +1,42 @@
 import React, { use, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
+import {
+  businessDetailsSchema,
+  BussinessDetailsFormData,
+  BusinessDetailsErrors,
+} from "@/schemas/businessDetailsSchema"; 
+import { parseErrors } from "@/lib/utils";
 
 export default function OnboardingTwo() {
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [contact, setContact] = useState("");
+  const [formData, setFormData] = useState<BussinessDetailsFormData>({
+    name: "",
+    address: "",
+    contact: "",
+  });
+  const [errors, setErrors] = useState<BusinessDetailsErrors>({});
+
+  const onSubmit = () => {
+    const validation = businessDetailsSchema.safeParse(formData);
+    if (!validation.success) {
+      const parsedErrors = parseErrors(validation.error);
+      setErrors(parsedErrors);
+      return;
+    } else {
+      setErrors({});
+    }
+
+    const { name, address, contact } = validation.data;
+    console.log(name, address, contact);
+    router.push("/store/admin-code");
+  };
 
   const [isNameFocused, setIsNameFocused] = useState(false);
   const [isAddressFocused, setIsAddressFocused] = useState(false);
@@ -28,11 +58,12 @@ export default function OnboardingTwo() {
           store's identity (you can fill these out later).
         </Text>
       </View>
-      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
+      <View className={ `bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10
+                        ${errors?.name && "border-2 border-red-500"}` }>
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
-          value={name}
-          onChangeText={setName}
+          value={formData.name}
+          onChangeText={(name) => setFormData({ ...formData, name })}
           onFocus={() => setIsNameFocused(true)}
           onBlur={() => setIsNameFocused(false)}
           placeholder={isNameFocused ? "" : "name"}
@@ -40,11 +71,12 @@ export default function OnboardingTwo() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
-      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
+      <View className={ `bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10
+                        ${errors?.address && "border-2 border-red-500"}` }>
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
-          value={address}
-          onChangeText={setAddress}
+          value={formData.address}
+          onChangeText={(address) => setFormData({ ...formData, address })}
           onFocus={() => setIsAddressFocused(true)}
           onBlur={() => setIsAddressFocused(false)}
           placeholder={isAddressFocused ? "" : "address"}
@@ -52,11 +84,12 @@ export default function OnboardingTwo() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
-      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-8 flex-row items-center space-x-10">
+      <View className={ `bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10
+                        ${errors?.contact && "border-2 border-red-500"}` }>
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
-          value={contact}
-          onChangeText={setContact}
+          value={formData.contact}
+          onChangeText={(contact) => setFormData({ ...formData, contact })}
           onFocus={() => setIsContactFocused(true)}
           onBlur={() => setIsContactFocused(false)}
           placeholder={isContactFocused ? "" : "contact number"}
@@ -64,13 +97,14 @@ export default function OnboardingTwo() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
-      <Link href="/store/admin-code" asChild>
-        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
-          <Text className="text-white text-xl font-semibold tracking-widest">
-            Continue!
-          </Text>
-        </TouchableOpacity>
-      </Link>
+      <TouchableOpacity
+        onPress={onSubmit}
+        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center"
+      >
+        <Text className="text-white text-xl font-semibold tracking-widest">
+          Continue!
+        </Text>
+      </TouchableOpacity>
     </KeyboardAvoidingView>
   );
 }
