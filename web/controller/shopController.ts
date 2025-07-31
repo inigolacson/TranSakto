@@ -1,6 +1,7 @@
 import prisma from "@/lib/db";
 import { StoreType } from "@prisma/client";
 import { Store } from "better-auth";
+import { error } from "console";
 
 type StorePayLoad = {
   name: string;
@@ -81,4 +82,20 @@ export async function getStores(userId: string) {
   });
 
   return stores;
+}
+
+export async function deleteStore(id: string, userId: string) {
+  const store = await prisma.store.findFirst({
+    where: { id, userId },
+  });
+
+  if (!store) {
+    throw new Error("Store not found or unauthorized");
+  }
+
+  const deletedStore = await prisma.store.delete({
+    where: { id },
+  });
+
+  return deletedStore;
 }
