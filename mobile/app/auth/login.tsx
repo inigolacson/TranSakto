@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import GoogleIcon from "../../assets/images/icons/Google.svg";
+import GoogleIcon from "@/app/components/GoogleIcon";
 import { authClient } from "@/lib/auth-client";
 import { handleOAuth } from "@/lib/utils";
 
@@ -134,7 +134,6 @@ export default function LoginPage() {
         <Link href="/auth/create-account" asChild>
           <Text className="text-buttonOrange font-ron ">Sign Up!</Text>
         </Link>
-
       </View>
 
       {/*redirection for onboard FOR TESTING*/}
