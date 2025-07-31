@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from "react-native";
 import { Link } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 
@@ -8,7 +8,10 @@ export default function ForgotOne() {
 
   const [email, setEmail] = useState("");
   return (
-    <View className="flex-1 w-full h-full justify-center px-8 py-16 items-center bg-tempBlack">
+    <KeyboardAvoidingView
+      behavior="padding"
+      className="flex-1 w-full h-full justify-center px-8 py-16 items-center bg-tempBlack"
+    >
       {/* logo or artwork section */}
       <View className="w-80 h-80 border-headerColor rounded-lg shadow-md justify-center items-center mb-20 border">
         <Text className="text-headerColor text-center text-sm">
@@ -48,6 +51,6 @@ export default function ForgotOne() {
           </Text>
         </TouchableOpacity>
       </Link>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
