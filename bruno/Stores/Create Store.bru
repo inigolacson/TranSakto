@@ -4,10 +4,23 @@ meta {
   seq: 1
 }
 
-get {
-  url: {{baseUrl}}/
-  body: none
-  auth: inherit
+post {
+  url: {{baseUrl}}/store
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: PXFNvnQSLhkxuX6zSxi8bWf1J5BDqdKc
+}
+
+body:json {
+  {
+    "name": "Outbox Wings",
+    "address": "Angono Rizal",
+    "tagline": "the best wings in town",
+    "permitNumber": "09231231"
+  }
 }
 
 settings {

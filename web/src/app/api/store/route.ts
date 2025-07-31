@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
 import { auth } from "@/lib/auth";
+import { createStore } from "@/controller/shopController";
 
 export async function POST(req: NextRequest) {
   try {
@@ -13,37 +14,14 @@ export async function POST(req: NextRequest) {
     const userId = sessionData.session.userId;
 
     const body = await req.json();
-    const {
-      name,
-      address,
-      number,
-      logoUrl,
-      tagline,
-      regTin,
-      permitNumber,
-      storeType,
-    } = body;
-
-    if (!name) {
+    if (!body.name) {
       return NextResponse.json(
         { error: "Missing Required Fields: name" },
         { status: 400 }
       );
     }
 
-    const newStore = await prisma.store.create({
-      data: {
-        name,
-        userId,
-        address,
-        number,
-        logoUrl,
-        tagline,
-        regTin,
-        permitNumber,
-        storeType,
-      },
-    });
+    const newStore = await createStore(body, userId);
 
     return NextResponse.json(newStore, { status: 201 });
   } catch (error) {
