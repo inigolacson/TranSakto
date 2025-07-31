@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import prisma from "@/lib/db";
-import { auth, getUserId } from "@/lib/auth";
-import { createStore, getStore, getStores } from "@/controller/shopController";
+import { getUserId } from "@/lib/auth";
+import { createStore, getStores } from "@/controller/shopController";
 
 export async function POST(req: NextRequest) {
   try {
