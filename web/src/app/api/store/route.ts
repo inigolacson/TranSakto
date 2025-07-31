@@ -1,18 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/db";
-import { auth } from "@/lib/auth";
+import { auth, getUserId } from "@/lib/auth";
 import { createStore } from "@/controller/shopController";
 
 export async function POST(req: NextRequest) {
   try {
-    const sessionData = await auth.api.getSession(req);
-
-    if (!sessionData || !sessionData.session.userId) {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const userId = sessionData.session.userId;
-
+    const userId = await getUserId(req);
     const body = await req.json();
     if (!body.name) {
       return NextResponse.json(
@@ -20,7 +13,6 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-
     const newStore = await createStore(body, userId);
 
     return NextResponse.json(newStore, { status: 201 });
