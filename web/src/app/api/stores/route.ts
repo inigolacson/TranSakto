@@ -4,12 +4,7 @@ import { storeController } from "@/controller/storeController";
 
 //Create Store
 export async function POST(req: NextRequest) {
-  return storeController.create(req);
-}
-
-//Update Store
-export async function PATCH(req: NextRequest) {
-  return storeController.update(req);
+  return storeController.createStore(req);
 }
 
 //Get Store
