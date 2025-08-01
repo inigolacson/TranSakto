@@ -1,5 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
-import { getUserId } from "@/lib/auth";
+import { NextRequest } from "next/server";
 import { storeController } from "@/controller/storeController";
 
 export async function GET(
