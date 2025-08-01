@@ -1,6 +1,7 @@
 import { getUserId } from "@/lib/auth";
 import { NextRequest, NextResponse } from "next/server";
 import { storeService } from "services/storeService";
+import { error } from "console";
 
 export const storeController = {
   async createStore(req: NextRequest) {
