@@ -1,4 +1,4 @@
-type StorePayLoad = {
+export type StorePayLoad = {
   name: string;
   address?: string;
   number?: string;
@@ -8,5 +8,3 @@ type StorePayLoad = {
   permitNumber?: string;
   storeType?: string;
 };
-
-export type { StorePayLoad };
