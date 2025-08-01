@@ -3,21 +3,21 @@ import { storeController } from "@/controller/storeController";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  return storeController.getStore(req, params.id);
+  return storeController.getStore(req, context.params.id);
 }
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  return storeController.updateStore(req, params.id);
+  return storeController.updateStore(req, context.params.id);
 }
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: { id: string } }
 ) {
-  return storeController.deleteStore(req, params.id);
+  return storeController.deleteStore(req, context.params.id);
 }
