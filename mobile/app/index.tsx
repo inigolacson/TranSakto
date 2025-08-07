@@ -1,10 +1,30 @@
-import React from "react";
-import { Link } from "expo-router";
+import React, { useEffect } from "react";
+import { Link, router } from "expo-router";
 import { View, Text, TouchableOpacity, ImageBackground } from "react-native";
+import { authClient } from "@/lib/auth-client";
 
 const bgImage = require("../assets/images/background/index.webp");
 
 export default function WelcomeScreen() {
+  const { data: session, isPending } = authClient.useSession();
+
+  useEffect(() => {
+    if (session) {
+      router.replace("/store");
+    }
+  }, [session]);
+
+  if (isPending) {
+    return (
+      // TODO: Implement loading screen
+      <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
+        <Text className="text-lg text-center text-subheaderColor px-4">
+          Loading...
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
       {/* logo or artwork section */}
