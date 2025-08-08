@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, router } from "expo-router";
+import { Link, router, usePathname } from "expo-router";
 import {
   View,
   Text,
@@ -18,19 +18,38 @@ export default function LoginPage() {
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
+  const pathname = usePathname()
+  const [isLoading, setIsLoading] = useState(false);
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    console.log(process.env.EXPO_PUBLIC_API_URL);
+    setIsLoading(true);
     await authClient.signIn.email({
       email,
       password,
-      callbackURL: "/store",
+      callbackURL: pathname,
+      fetchOptions: {
+        onSuccess: () => {
+          setIsLoading(false);
+        }
+      }
     });
   };
+
+  if (isLoading) {
+    return (
+      // TODO: Implement loading screen
+      <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
+        <Text className="text-lg text-center text-subheaderColor px-4">
+          Loading...
+        </Text>
+      </View>
+    );
+  }
 
   return (
     <View className="flex-1 justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
@@ -104,7 +123,7 @@ export default function LoginPage() {
 
       {/* google button */}
       <TouchableOpacity
-        onPress={() => handleOAuth("google")}
+        onPress={() => handleOAuth("google", pathname, setIsLoading)}
         className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5"
       >
         <View className="flex-row items-center gap-x-3">
@@ -115,7 +134,7 @@ export default function LoginPage() {
 
       {/* facebook button */}
       <TouchableOpacity
-        onPress={() => handleOAuth("facebook")}
+        onPress={() => handleOAuth("facebook", pathname, setIsLoading)}
         className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12"
       >
         <View className="flex-row items-center gap-x-3">

@@ -1,3 +1,4 @@
+import { authClient } from "@/lib/auth-client";
 import { FontAwesome } from "@expo/vector-icons";
 import { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
@@ -37,6 +38,11 @@ const tempStores: StoreInterface[] = [
 
 export default function StoreSelect() {
   const [stores, setStores] = useState(tempStores);
+
+  const handleLogout = async () => {
+    await authClient.signOut();
+  };
+
   return (
     <View className="flex justify-center items-center px-8 py-16 w-full h-full bg-tempBlack">
       {/* header */}
@@ -52,7 +58,7 @@ export default function StoreSelect() {
         {stores.map((store) => {
           // Get icon based from store type
           const icon = businessOptions.filter(
-            (option) => option.value === store.type
+            (option) => option.value === store.type,
           )[0];
           return (
             <TouchableOpacity
@@ -74,6 +80,18 @@ export default function StoreSelect() {
         <TouchableOpacity className="bg-buttonOrange py-4 items-center text-center rounded-md">
           <Text className="text-subheaderColor font-ron-bold">
             Add Another Store
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* temp logout */}
+      <View className="px-8 w-full mt-4">
+        <TouchableOpacity
+          onPress={handleLogout}
+          className="bg-red-800 py-4 items-center text-center rounded-md"
+        >
+          <Text className="text-subheaderColor font-ron-bold">
+            Logout (temp)
           </Text>
         </TouchableOpacity>
       </View>
