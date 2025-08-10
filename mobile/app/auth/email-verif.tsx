@@ -1,10 +1,11 @@
 import React, { useState, useRef } from "react";
 import { View, TouchableOpacity, Text } from "react-native";
-import { Link, router } from "expo-router";
+import { Link, router, useLocalSearchParams } from "expo-router";
 import CodeInput from "@/components/CodeInput";
 import { linkTo } from "expo-router/build/global-state/routing";
 
-export default function ForgotTwo() {
+export default function ForgotOne() {
+  const { otp } = useLocalSearchParams();
   const [code, setCode] = useState(["", "", "", ""]);
 
   const handleResend = () => {
@@ -14,7 +15,9 @@ export default function ForgotTwo() {
 
   const handleConfirm = () => {
     router.push("/auth/forgot-3");
+    console.log("OTP: ", otp);
     console.log("Code: ", code);
+    console.log("Match: ", otp === code)
     //handle confirm logic
   };
 
