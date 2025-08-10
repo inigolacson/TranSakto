@@ -169,7 +169,7 @@ export default function CreateAccount() {
 
       {/* google button */}
       <TouchableOpacity
-        // onPress={() => handleOAuth("google")}
+        onPress={() => handleOAuth("google")}
         className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-5"
       >
         <View className="flex-row items-center gap-x-3">
@@ -180,7 +180,7 @@ export default function CreateAccount() {
 
       {/* facebook button */}
       <TouchableOpacity
-        // onPress={() => handleOAuth("facebook")}
+        onPress={() => handleOAuth("facebook")}
         className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-12"
       >
         <View className="flex-row items-center gap-x-3">
