@@ -1,5 +1,11 @@
 import React, { use, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { Link } from "expo-router";
 
@@ -22,13 +28,13 @@ export default function OnboardingTwo() {
         Business Details
       </Text>
       {/* subheader */}
-      <View className="w-3/5 items-center justify-center mb-6">
+      <View className="w-3/5 max-w-[30rem] items-center justify-center mb-6">
         <Text className="text-subheaderColor text-center font-ron leading-6 text-lg">
           These details will appear on your receipts and help you set up your
           store's identity (you can fill these out later).
         </Text>
       </View>
-      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
+      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 max-w-[30rem] mb-5 flex-row items-center space-x-10">
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={name}
@@ -40,7 +46,7 @@ export default function OnboardingTwo() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
-      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
+      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 max-w-[30rem] mb-5 flex-row items-center space-x-10">
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={address}
@@ -52,7 +58,7 @@ export default function OnboardingTwo() {
           placeholderTextColor="#3A3A3A"
         />
       </View>
-      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-8 flex-row items-center space-x-10">
+      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 max-w-[30rem] mb-8 flex-row items-center space-x-10">
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={contact}
@@ -65,7 +71,7 @@ export default function OnboardingTwo() {
         />
       </View>
       <Link href="/store/admin-code" asChild>
-        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
+        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center">
           <Text className="text-white text-xl font-semibold tracking-widest">
             Continue!
           </Text>
