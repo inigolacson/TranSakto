@@ -29,7 +29,7 @@ export default function ForgotThree() {
         </Text>
       </View>
       {/* password */}
-      <View className="bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
+      <View className="bg-textBoxWhite rounded-full py-2 px-8 w-3/4 max-w-[30rem] mb-5 flex-row items-center space-x-10">
         <FontAwesome name="lock" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={password}
@@ -54,7 +54,7 @@ export default function ForgotThree() {
       </View>
 
       {/* confirm password */}
-      <View className="bg-textBoxWhite rounded-full px-8 py-2 mb-8 w-3/4 flex-row items-center space-x-10">
+      <View className="bg-textBoxWhite rounded-full px-8 py-2 mb-8 w-3/4 max-w-[30rem] flex-row items-center space-x-10">
         <FontAwesome name="lock" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={confirmPassword}
@@ -80,7 +80,7 @@ export default function ForgotThree() {
 
       {/* button */}
       <Link href="/auth/forgot-3" asChild>
-        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
+        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-5">
           <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
             Reset Password
           </Text>

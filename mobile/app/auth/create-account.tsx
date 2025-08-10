@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link, router } from "expo-router";
+import { Link, router, usePathname } from "expo-router";
 import {
   View,
   Text,
@@ -29,6 +29,9 @@ export default function CreateAccount() {
   const [email, setEmail] = useState("");
   const [emailConfirm, setEmailConfirm] = useState("");
   const [password, setPassword] = useState("");
+
+  const pathname = usePathname();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSignUp = async () => {
     console.log(process.env.EXPO_PUBLIC_API_URL);
@@ -169,7 +172,7 @@ export default function CreateAccount() {
 
       {/* google button */}
       <TouchableOpacity
-        onPress={() => handleOAuth("google")}
+        onPress={() => handleOAuth("google", pathname, setIsLoading)}
         className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-5"
       >
         <View className="flex-row items-center gap-x-3">
@@ -180,7 +183,7 @@ export default function CreateAccount() {
 
       {/* facebook button */}
       <TouchableOpacity
-        onPress={() => handleOAuth("facebook")}
+        onPress={() => handleOAuth("facebook", pathname, setIsLoading)}
         className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-12"
       >
         <View className="flex-row items-center gap-x-3">

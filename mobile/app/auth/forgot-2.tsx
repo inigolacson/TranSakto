@@ -1,9 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  View,
-  TouchableOpacity,
-  Text,
-} from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import CodeInput from "@/components/CodeInput";
 import { Link, router } from "expo-router";
 import { linkTo } from "expo-router/build/global-state/routing";
@@ -53,7 +49,7 @@ export default function ForgotTwo() {
 
       {/* button */}
       <TouchableOpacity
-        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5"
+        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-5"
         onPress={handleConfirm}
       >
         <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
