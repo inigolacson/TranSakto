@@ -4,7 +4,7 @@ import { Link, router, useLocalSearchParams } from "expo-router";
 import CodeInput from "@/components/CodeInput";
 import { linkTo } from "expo-router/build/global-state/routing";
 
-export default function ForgotOne() {
+export default function EmailVerif() {
   const { otp } = useLocalSearchParams();
   const [code, setCode] = useState(["", "", "", ""]);
 
@@ -14,7 +14,6 @@ export default function ForgotOne() {
   };
 
   const handleConfirm = () => {
-    router.push("/auth/forgot-3");
     console.log("OTP: ", otp);
     console.log("Code: ", code);
     console.log("Match: ", otp === code)
