@@ -5,7 +5,7 @@ import CodeInput from "@/components/CodeInput";
 import { linkTo } from "expo-router/build/global-state/routing";
 
 export default function EmailVerif() {
-  const { otp } = useLocalSearchParams();
+  const { email, otp } = useLocalSearchParams();
   const [code, setCode] = useState(["", "", "", ""]);
 
   const handleResend = () => {
@@ -16,7 +16,7 @@ export default function EmailVerif() {
   const handleConfirm = () => {
     console.log("OTP: ", otp);
     console.log("Code: ", code);
-    console.log("Match: ", otp === code)
+    console.log("Match: ", otp === code);
     //handle confirm logic
   };
 
@@ -32,8 +32,7 @@ export default function EmailVerif() {
       {/* description */}
       <View className="items-center mb-5 w-4/5">
         <Text className="font-ron font-lg text-subheaderColor text-center leading-6 text-lg">
-          We have sent the verification code to (email). Enter code to continue
-          account creation.
+          {`We have sent the verification code to ${email}. Enter code to continue account creation.`}
         </Text>
       </View>
 

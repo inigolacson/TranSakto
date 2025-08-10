@@ -9,6 +9,7 @@ export default function WelcomeScreen() {
   const { data: session, isPending } = authClient.useSession();
 
   useEffect(() => {
+    authClient.signOut();
     if (session) {
       router.replace("/store");
     }

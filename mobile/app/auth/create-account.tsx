@@ -35,13 +35,35 @@ export default function CreateAccount() {
 
   const handleSignUp = async () => {
     console.log(process.env.EXPO_PUBLIC_API_URL);
-    await authClient.signUp
-      .email({
-        name: "User", // TODO: Implement name input
-        email,
-        password,
-      })
-      .then(() => router.push("/store/create-1")); // TODO: Implement server error checking
+    console.log(`${process.env.EXPO_PUBLIC_API_URL}/send-verification-email`)
+
+    const otp = "123456";
+
+    try {
+      console.log("Verifying...");
+      //await authClient.emailOtp.verifyEmail({ email, otp });
+
+      const res = await fetch(
+        `${process.env.EXPO_PUBLIC_API_URL}/send-verification-email`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, otp: "123456" }),
+        },
+      );
+
+      console.log("Fetch status:", res.status);
+      console.log("Verification succeeded");
+    } catch (err) {
+      console.error("Verification failed:", err);
+    }
+
+    console.log(email, otp);
+
+    router.push({
+      pathname: "/auth/email-verif",
+      params: { email, otp },
+    });
   };
 
   return (

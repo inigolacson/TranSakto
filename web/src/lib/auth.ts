@@ -31,7 +31,12 @@ export const auth = betterAuth({
   },
 
   plugins: [openAPI(), expo(), oAuthProxy(), emailOTP({ sendVerificationOTP })],
-  trustedOrigins: ["exp://"],
+  trustedOrigins: [
+    "exp://", // dev deep link
+    "http://localhost:8081", // Expo web/dev
+    "http://localhost:3000", // Next.js dev
+    "https://transakto.vercel.app", // prod web
+  ],
 });
 
 export async function getUserId(req: NextRequest): Promise<string> {

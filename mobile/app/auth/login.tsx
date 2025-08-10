@@ -27,7 +27,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
 
   const handleLogin = async () => {
-    setIsLoading(true);
+    setIsLoading(false);
     await authClient.signIn.email({
       email,
       password,
