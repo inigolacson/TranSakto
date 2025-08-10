@@ -51,7 +51,7 @@ export default function CreateAccount() {
       </View>
 
       {/* name */}
-      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 mb-5 flex-row items-center space-x-10">
+      <View className=" bg-textBoxWhite rounded-full py-2 px-8 w-3/4 max-w-[30rem] mb-5 flex-row items-center space-x-10">
         <FontAwesome name="user" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={name}
@@ -65,7 +65,7 @@ export default function CreateAccount() {
       </View>
 
       {/* email */}
-      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10">
+      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 max-w-[30rem] flex-row items-center space-x-10">
         <FontAwesome
           name="envelope"
           size={15}
@@ -84,7 +84,7 @@ export default function CreateAccount() {
       </View>
 
       {/* password */}
-      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10">
+      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 max-w-[30rem] flex-row items-center space-x-10">
         <FontAwesome name="lock" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={password}
@@ -110,7 +110,7 @@ export default function CreateAccount() {
       </View>
 
       {/* confirm password */}
-      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 flex-row items-center space-x-10">
+      <View className="bg-textBoxWhite rounded-full py-2 px-8 mb-5 w-3/4 max-w-[30rem] flex-row items-center space-x-10">
         <FontAwesome name="lock" size={20} color="#C44422" className="mr-3" />
         <TextInput
           value={emailConfirm}
@@ -136,7 +136,7 @@ export default function CreateAccount() {
       </View>
 
       {/* checkbox */}
-      <View className="flex-row items-center space-x-10 mb-8 justify-items-start w-3/4 pl-3">
+      <View className="flex-row items-center space-x-10 mb-8 justify-items-start w-3/4 max-w-[30rem] pl-3">
         <Pressable
           className="size-7 rounded-md bg-textBoxWhite flex justify-center p-0 items-center"
           onPress={() => setChecked(!checked)}
@@ -152,7 +152,7 @@ export default function CreateAccount() {
 
       {/* button */}
       <TouchableOpacity
-        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center"
+        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center"
         onPress={handleSignUp}
       >
         <Text className="text-white text-xl font-semibold tracking-widest">
@@ -161,7 +161,7 @@ export default function CreateAccount() {
       </TouchableOpacity>
 
       {/* divider */}
-      <View className="flex-row items-center my-10 w-3/4">
+      <View className="flex-row items-center my-10 w-3/4 max-w-[30rem]">
         <View className="flex-1 h-px bg-textBoxWhite" />
         <Text className="mx-3 text-textBoxWhite text-sm">Or sign up with</Text>
         <View className="flex-1 h-px bg-textBoxWhite" />
@@ -169,8 +169,8 @@ export default function CreateAccount() {
 
       {/* google button */}
       <TouchableOpacity
-        onPress={() => handleOAuth("google")}
-        className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5"
+        // onPress={() => handleOAuth("google")}
+        className="bg-textBoxWhite py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-5"
       >
         <View className="flex-row items-center gap-x-3">
           <GoogleIcon width={20} height={20} />
@@ -180,8 +180,8 @@ export default function CreateAccount() {
 
       {/* facebook button */}
       <TouchableOpacity
-        onPress={() => handleOAuth("facebook")}
-        className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-12"
+        // onPress={() => handleOAuth("facebook")}
+        className="bg-facebookBlue py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-12"
       >
         <View className="flex-row items-center gap-x-3">
           <FontAwesome name="facebook-square" color="#FFFFFF" size={20} />
