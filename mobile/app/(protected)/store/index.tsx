@@ -2,6 +2,7 @@ import { authClient } from "@/lib/auth-client";
 import { FontAwesome } from "@expo/vector-icons";
 import { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
+import { Link } from "expo-router";
 
 type FontAwesomeIconName = keyof typeof FontAwesome.glyphMap;
 
@@ -54,11 +55,11 @@ export default function StoreSelect() {
       </Text>
 
       {/* stores */}
-      <View className="flex flex-col w-full px-8 mb-8">
+      <View className="flex flex-col w-3/4 max-w-[30rem] px-8 mb-8">
         {stores.map((store) => {
           // Get icon based from store type
           const icon = businessOptions.filter(
-            (option) => option.value === store.type,
+            (option) => option.value === store.type
           )[0];
           return (
             <TouchableOpacity
@@ -76,16 +77,18 @@ export default function StoreSelect() {
         })}
       </View>
       {/* add another store */}
-      <View className="px-8 w-full">
-        <TouchableOpacity className="bg-buttonOrange py-4 items-center text-center rounded-md">
-          <Text className="text-subheaderColor font-ron-bold">
-            Add Another Store
-          </Text>
-        </TouchableOpacity>
+      <View className="px-8 w-3/4 max-w-[30rem] ">
+        <Link href="/store/create-1" asChild>
+          <TouchableOpacity className="bg-buttonOrange py-4 items-center text-center rounded-md">
+            <Text className="text-subheaderColor font-ron-bold">
+              Add Another Store
+            </Text>
+          </TouchableOpacity>
+        </Link>
       </View>
 
       {/* temp logout */}
-      <View className="px-8 w-full mt-4">
+      <View className="px-8  mt-4 w-3/4 max-w-[30rem]">
         <TouchableOpacity
           onPress={handleLogout}
           className="bg-red-800 py-4 items-center text-center rounded-md"

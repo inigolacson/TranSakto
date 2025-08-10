@@ -45,7 +45,7 @@ export default function WelcomeScreen() {
       {/* start button (redirects to login) */}
       <View className="w-full items-center">
         <Link href="/auth/login" asChild>
-          <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center">
+          <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center">
             <Text className="text-white text-xl font-ron-bold tracking-widest">
               Start Today!
             </Text>

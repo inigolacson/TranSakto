@@ -1,9 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  View,
-  TouchableOpacity,
-  Text,
-} from "react-native";
+import { View, TouchableOpacity, Text } from "react-native";
 import { Link, router } from "expo-router";
 import CodeInput from "@/components/CodeInput";
 import { linkTo } from "expo-router/build/global-state/routing";
@@ -34,7 +30,8 @@ export default function ForgotTwo() {
       {/* description */}
       <View className="items-center mb-5 w-4/5">
         <Text className="font-ron font-lg text-subheaderColor text-center leading-6 text-lg">
-          We have sent the verification code to (email). Enter code to continue account creation.
+          We have sent the verification code to (email). Enter code to continue
+          account creation.
         </Text>
       </View>
 
@@ -53,7 +50,7 @@ export default function ForgotTwo() {
 
       {/* button */}
       <TouchableOpacity
-        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5"
+        className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-5"
         onPress={handleConfirm}
       >
         <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">

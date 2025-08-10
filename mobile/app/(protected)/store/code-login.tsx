@@ -1,34 +1,10 @@
-import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React from "react";
+import { View, Text } from "react-native";
+import CodeLogin from "@/components/CodeLogin";
 
-const keys = [
-  { label: "1", value: 1 },
-  { label: "2", value: 2 },
-  { label: "3", value: 3 },
-  { label: "4", value: 4 },
-  { label: "5", value: 5 },
-  { label: "6", value: 6 },
-  { label: "7", value: 7 },
-  { label: "8", value: 8 },
-  { label: "9", value: 9 },
-  { label: "⌫", value: "backspace" },
-  { label: "0", value: 0 },
-  { label: "✓", value: "submit" },
-];
-
-export default function CodeLogin() {
-  const [input, setInput] = useState<String>("");
-
-  const handleKeyPress = (value: number | string) => {
-    if (typeof value === "number") {
-      if (input.length < 4) {
-        setInput((prev) => prev + value.toString());
-      }
-    } else if (value === "backspace") {
-      setInput((prev) => prev.slice(0, -1));
-    } else if (value === "submit") {
-      console.log("sumbit", input);
-    }
+export default function GeneralLogin() {
+  const handleLoginSubmit = (code: string) => {
+    console.log("Login POS Test:", code);
   };
 
   return (
@@ -39,31 +15,8 @@ export default function CodeLogin() {
           Ready to make some sales?
         </Text>
       </View>
-      {/* knobs */}
-      <View className="flex-row mb-6 gap-3">
-        {[0, 1, 2, 3].map((i) => (
-          <View
-            key={i}
-            className={`w-6 h-6 rounded full shadow-md ${
-              i < input.length ? "bg-buttonOrange" : "bg-textBoxWhite"
-            }`}
-          />
-        ))}
-      </View>
-      {/* number grid */}
-      <View className="w-3/4 flex-wrap flex-row gap-1 justify-center">
-        {keys.map((key, index) => (
-          <TouchableOpacity
-            key={index}
-            className="w-28 h-28 bg-textBoxWhite justify-center rounded-3xl items-center mx-2 my-2"
-            onPress={() => handleKeyPress(key.label)}
-          >
-            <Text className="text-tempBlack font-ron-bold text-3xl">
-              {key.label}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+      {/* knobs and number grid */}
+      <CodeLogin onSubmit={handleLoginSubmit} />
     </View>
   );
 }

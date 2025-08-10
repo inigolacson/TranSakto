@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  KeyboardAvoidingView,
+} from "react-native";
 import { Link } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 
@@ -27,7 +33,7 @@ export default function ForgotOne() {
           Enter email to send one-time password
         </Text>
       </View>
-      <View className="w-3/4 bg-textBoxWhite rounded-full py-2 px-8 mb-8 flex-row items-center space-x-10">
+      <View className="w-3/4 max-w-[30rem] bg-textBoxWhite rounded-full py-2 px-8 mb-8 flex-row items-center space-x-10">
         <FontAwesome
           name="envelope"
           size={15}
@@ -45,7 +51,7 @@ export default function ForgotOne() {
         ></TextInput>
       </View>
       <Link href="/auth/forgot-2" asChild>
-        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 items-center mb-5">
+        <TouchableOpacity className="bg-buttonOrange py-4 px-8 rounded-full shadow-md w-3/4 max-w-[30rem] items-center mb-5">
           <Text className="text-textBoxWhite font-ron-bold text-xl tracking-widest">
             Send Code
           </Text>
